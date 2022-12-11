@@ -1,59 +1,63 @@
 #include <stdio.h>
 int main() {
-    int i,VetorMax;
+    int i,TamVet;
     
     //Informando a quantidade de números dentro do vetor.
     
-    printf("Informe o número de elementos a serem somados: ");
-        scanf("%d",&VetorMax);
+    printf("Informe o número vetores: ");
+        scanf("%d",&TamVet);
         
-    //Criando os tres vetores.
+    //Inicio dos Vetores.
     
-    int vetA[VetorMax],vetB[VetorMax],vetC[VetorMax];
+    int vetA[TamVet],vetB[TamVet],vetC[TamVet];
     
-    //pedindo o conteúdo 1° do vetor.
+    //Pedindo o conteúdo 1° do vetor.
     
-    for (i=0;i<VetorMax;i++) {
+    for (i=0;i<TamVet;i++) {
         printf("\nInforme o %dº valor: ", i+1);
             scanf("%d",&vetA[i]);}
     
-    //imprimindo o conteúdo do 1° vetor.
+    //Imprimindo o conteúdo do 1° vetor.
     
     printf("\n\tVetor criado: [ ");
-    for (i=0;i<VetorMax-1;i++) {
+    for (i=0;i<TamVet-1;i++) {
         printf("%d,", vetA[i]); }
-    printf("%d ]\n", vetA[VetorMax-1]);
+    printf("%d ]\n", vetA[TamVet-1]);
     
-    //pedindo o conteúdo 2° do vetor.
+    //Pedindo o conteúdo 2° do vetor.
     
-    for (i=0;i<VetorMax;i++) {
+    for (i=0;i<TamVet;i++) {
         printf("\nInforme o %dº valor: ", i+1);
         scanf("%d",&vetB[i]); }
     
-    //imprimindo o conteúdo 2° do vetor.
+    //Imprimindo o conteúdo 2° do vetor.
     
     printf("\n\t2° Vetor criado: [ ");
-        for (i=0;i<VetorMax-1;i++) {
+        for (i=0;i<TamVet-1;i++) {
             printf("%d,", vetB[i]); }
-        printf("%d ]\n", vetB[VetorMax-1]);
+        printf("%d ]\n", vetB[TamVet-1]);
     
     //Realizando a soma das interseções dos vetores A e B.
-        printf("\n\t3° Vetor [");
-            for (i=0;i<VetorMax-2;i++) {
+        printf("\n\t3° Vetor [ ");
+            for (i=0;i<TamVet-2;i++) {
                 if (vetA[i] == vetB[i]) { 
                 vetC[i] = vetA[i] + vetB[i];
-            printf(" %d,",vetC[i]); }}
-    //Condição para imprimir penultimo número sem a virgula.
-        if (vetA[VetorMax-2] == vetB[VetorMax-2])
-        {   vetC[VetorMax-2] = vetA[VetorMax-2] + vetB[VetorMax-2];
-                    printf("%d",vetC[VetorMax-2]);
+            printf("%d,",vetC[i]); }}
+    //Condição para imprimir penultimo número com e sem a virgula.
+        if (vetA[TamVet-2] == vetB[TamVet-2] && vetA[TamVet-1] != vetB[TamVet-1] )
+        {   vetC[TamVet-2] = vetA[TamVet-2] + vetB[TamVet-2];
+                    printf("%d",vetC[TamVet-2]);
                 }
-    //Condição para imprimir ultimo número sem a virgula.    
-        if (vetA[VetorMax-1] == vetB[VetorMax-1]) {
-            vetC[VetorMax-1] = vetA[VetorMax-1] + vetB[VetorMax-1];
-            printf(" %d ]",vetC[VetorMax-1]); }
+        else if (vetA[TamVet-2] == vetB[TamVet-2] && vetA[TamVet-1] == vetB[TamVet-1] )
+        {   vetC[TamVet-2] = vetA[TamVet-2] + vetB[TamVet-2];
+                    printf("%d,",vetC[TamVet-2]);
+                }
+    //Condição para imprimir ultimo número.    
+        if (vetA[TamVet-1] == vetB[TamVet-1]) {
+            vetC[TamVet-1] = vetA[TamVet-1] + vetB[TamVet-1];
+            printf("%d ]",vetC[TamVet-1]); }
         else {
-            printf(" ]"); }
+            printf("]"); }
 
     return 0;
 }
